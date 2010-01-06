@@ -2,6 +2,10 @@
 
 This is a Rails plugin to create admin pages to manage resource style models. Simple and flexible, does no more than it needs to.
 
+== NOTE!
+
+This plugin is being extracted from an active project and is under active initial development.  Use at your own risk for now.
+
 == INSTALLATION
   
 As a gem inside your environment.rb
