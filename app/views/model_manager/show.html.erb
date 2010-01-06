@@ -1,0 +1,6 @@
+<%= link_to "Edit this #{human_name(@klass)}", edit_path(@current_object) %>
+<%= link_to "Show all #{plural_human_name(@klass)}", index_path(@klass) %>
+<br/>
+<% @current_object.class.columns.each do |col| %>
+  <strong><%= col.name %></strong>: <%= render_column(col, @current_object) %><br/>
+<% end %>

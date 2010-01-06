@@ -1,0 +1,14 @@
+<%= link_to "Create New #{human_name(@klass)}", new_path(@klass) %>
+
+<%= will_paginate @current_objects %>
+
+<table width="100%">
+  <tr>    
+    <th>Id</th>
+    <%= selected_columns(@klass).collect {|c| "<th>#{c.name}</th>" }.join("\n") %>
+    <th>Created</th>
+    <th>Updated</th>
+    <th>&nbsp;</th>
+  </tr>
+  <%= render :partial => '/model_manager/object', :collection => @current_objects %>
+</table>

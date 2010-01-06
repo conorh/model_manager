@@ -1,0 +1,6 @@
+<% form_for([:admin, @current_object]) do |f| %>
+  <% @current_object.class.columns.each do |col| %>
+    <%= f.label col.name %> <%= render_edit_column(f, col, @current_object) %><br/>
+  <% end %>
+  <%= submit_tag %>
+<% end %>

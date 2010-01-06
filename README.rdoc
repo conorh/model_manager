@@ -1,0 +1,47 @@
+= MODEL MANAGER
+
+This is a Rails plugin to create admin pages to manage resource style models. Simple and flexible, does no more than it needs to.
+
+== INSTALLATION
+  
+As a gem inside your environment.rb
+
+  config.gem 'model_manager'
+
+As a plugin
+
+  # FROM RAILS_ROOT
+  ruby script/plugin install git://github.com/conorh/model_manager.git
+  
+The plugin will install a model_manager.css file into your public directory.
+
+== USAGE
+
+Create the model that you want to manage:
+
+  class BlogEntry < ActiveRecord::Base
+  end
+
+Create a controller for that model that extends from ModelManager. It must be named the plural of the model name:
+
+  class BlogEntriesController < ModelManagerController
+  end
+
+Add a resource route for that controller:
+
+  map.resources :blog_entries
+  
+Going to /blog_entries will now let you view/create/update/delete BlogEntry models.
+
+To override methods just define that method in the controller. For example:
+
+  class BlogEntriesController < ModelManagerController
+    def index
+      @current_objects = BlogEntry.paginate(:conditions => {:public => true})
+    end
+  end
+
+== COPYRIGHT
+
+Copyright (c) 2010 Conor Hunt <conor DOT hunt AT gmail DOT com>
+Released under the MIT + GPL licenses
